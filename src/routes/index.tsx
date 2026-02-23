@@ -1,6 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
+import styles from "./home.module.css";
 // import { HiArrowRightOutline } from "@qwikest/icons/heroicons";
+
 
 export default component$(() => {
   return (
@@ -10,6 +12,7 @@ export default component$(() => {
       </div>
       <div class="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div class="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
+        <div class={styles.shape} />
           <p class="text-xl text-gray-800 md:text-3xl md:leading-normal">
             <strong>Welcome to LRDQwik.</strong> This is the example for the{" "}
             <Link
@@ -18,7 +21,7 @@ export default component$(() => {
               rel="noopener noreferrer"
               class="text-blue-500"
             >
-              Qwik Learn Course
+              Learn Qwik Course
             </Link>
             , brought to you by{" "}
             <Link
