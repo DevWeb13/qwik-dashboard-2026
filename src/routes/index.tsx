@@ -4,6 +4,9 @@ import { HiArrowRightOutline } from "~/assets/svg/HiArrowRightOutline";
 import { LRDQwikLogo } from "~/assets/svg/LRDQwikLogo";
 import styles from "./home.module.css";
 
+import HeroImg from "~/assets/img/heroImg.png?jsx";
+import HeroMobileImg from "~/assets/img/heroMobileImg.png?jsx";
+
 export default component$(() => {
   return (
     <main class="flex min-h-screen flex-col p-6">
@@ -44,6 +47,16 @@ export default component$(() => {
         </div>
         <div class="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
+          <HeroImg
+            class="hidden md:block"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <HeroMobileImg
+            class="block md:hidden"
+            loading="eager"
+            fetchPriority="high"
+          />
         </div>
       </div>
     </main>
