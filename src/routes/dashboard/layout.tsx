@@ -1,7 +1,25 @@
-// /src/routes/dashboard/layout.tsx
+// src/routes/dashboard/layout.tsx
 
 import { component$, Slot } from "@builder.io/qwik";
+import { routeLoader$ } from "@builder.io/qwik-city";
 import { SideNav } from "~/components/ui/dashboard/sidenav";
+import {
+  fetchCardData,
+  fetchLatestInvoices,
+  fetchRevenue,
+} from "~/lib/loaders";
+
+export const useFetchRevenue = routeLoader$(async () => {
+  return fetchRevenue();
+});
+
+export const useFetchLatestInvoices = routeLoader$(async () => {
+  return fetchLatestInvoices();
+});
+
+export const useFetchCardData = routeLoader$(async () => {
+  return fetchCardData();
+});
 
 export default component$(() => {
   return (
