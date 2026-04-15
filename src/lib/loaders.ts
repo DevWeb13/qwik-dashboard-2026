@@ -5,6 +5,13 @@ import type { LatestInvoice, Revenue } from "~/types/placeholder-data-types";
 import { formatCurrency } from "~/utils/utils";
 
 export const fetchRevenue = async (): Promise<Revenue[]> => {
+  // We artificially delay a response for demo purposes.
+  // Don't do this in production :)
+  console.log("Fetching revenue data...");
+  
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  console.log("Revenue data fetched after 3 seconds.");
   return revenue;
 };
 

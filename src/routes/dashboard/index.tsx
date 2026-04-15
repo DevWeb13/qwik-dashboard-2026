@@ -1,14 +1,28 @@
 // src/routes/dashboard/index.tsx
 
 import { component$ } from "@builder.io/qwik";
+import { routeLoader$ } from "@builder.io/qwik-city";
 import { Card } from "~/components/ui/dashboard/cards";
 import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
 import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
 import {
-  useFetchCardData,
-  useFetchLatestInvoices,
-  useFetchRevenue,
-} from "./layout";
+  fetchCardData,
+  fetchLatestInvoices,
+  fetchRevenue,
+} from "~/lib/loaders";
+
+export const useFetchRevenue = routeLoader$(async () => {
+  console.log("Fetching revenue from the dashboard home page...");
+  return fetchRevenue();
+});
+
+export const useFetchLatestInvoices = routeLoader$(async () => {
+  return fetchLatestInvoices();
+});
+
+export const useFetchCardData = routeLoader$(async () => {
+  return fetchCardData();
+});
 
 export default component$(() => {
   const revenue = useFetchRevenue();
